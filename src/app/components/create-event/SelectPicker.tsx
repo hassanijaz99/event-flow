@@ -4,7 +4,7 @@ import Image from 'next/image'
 import useGlobalContext from '@/app/hooks/useGlobalContext';
 
 type Props = {
-    items: array;
+    items: {value:string,label:string}[];
     lightIcon: string;
     darkIcon: string;
     label: string;

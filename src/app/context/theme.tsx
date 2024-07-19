@@ -11,20 +11,20 @@ export const GlobalContext = createContext({} as GlobalContextTypes)
 const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [theme, setTheme] = useState(
-        localStorage.getItem("theme") ?? 'light'
+       typeof window !== 'undefined'? localStorage.getItem("theme")??'light' : 'light'
     );
 
 
     useEffect(() => {
-        if (theme === 'dark') {
-            localStorage.setItem("theme", "dark")
-            document.querySelector('html')?.classList.add('dark');
-        } else {
-            localStorage.setItem("theme", "light")
-            document.querySelector('html')?.classList.remove('dark');
+        if (typeof window !== 'undefined') {
+            if (theme === 'dark') {
+                localStorage.setItem("theme", "dark")
+                document.querySelector('html')?.classList.add('dark');
+            } else {
+                localStorage.setItem("theme", "light")
+                document.querySelector('html')?.classList.remove('dark');
+            }
         }
-
-        console.log({ themeInfo: "THEME WAS CHANGED", theme })
     }, [theme])
 
     return (

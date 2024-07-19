@@ -9,7 +9,7 @@ const TodayEvents = () => {
 
   return (
     <Box mt='8' className="w-full">
-      <Text as="p" className="dark:text-mintWhisper deepForestGreen text-opacity-35">Today's Events</Text>
+      <Text as="p" className="dark:text-mintWhisper deepForestGreen text-opacity-35">Todays Events</Text>
       <Flex direction="column" mt='4'>
         {sidebarEventsData.map(({ icon, title, subtitle }, i) => (
           <Flex align='center' gap="3" my='1' p="2" key={i} className={`${theme == 'dark' ? 'menu-hover-dark' : 'menu-hover-light'} rounded-md`}>
